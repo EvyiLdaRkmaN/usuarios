@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\MarryController;
 use Illuminate\Database\Schema\IndexDefinition;
 
 /*
@@ -25,3 +26,4 @@ Route::get('usuarios/{usuario}', [UsuarioController::class, 'show'])->name('usua
 Route::get('usuarios/{usuario}/edit', [UsuarioController::class, 'edit'])->name('usuarios.edit');
 Route::put('usuarios/{usuario}', [UsuarioController::class, 'update'])->name('usuarios.update');
 Route::delete('usuarios/{usuario}',[UsuarioController::class, 'destroy'])->name('usuarios.destroy');
+Route::get('marry',[MarryController::class, 'index'])->name('marry.index');
