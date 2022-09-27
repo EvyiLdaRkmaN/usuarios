@@ -19,7 +19,15 @@ class UsuarioController extends Controller
     }
     
     public function marry(){
-        return view('usuarios.marry');
+        $usuarios = Usuario::orderBY('id', 'desc')
+            ->where('sexo', 'Masculino')
+            ->where('estado', 'Soltero')
+            ->paginate();
+        $usuariosF = Usuario::orderBY('id', 'desc')
+            ->where('sexo', 'Femenino')
+            ->where('estado', 'Soltero')
+            ->paginate();
+        return view('usuarios.marry', compact('usuarios'), compact('usuariosF'));
     }
 
     public function store(StoreUsuario $request){
