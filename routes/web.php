@@ -19,6 +19,7 @@ use Illuminate\Database\Schema\IndexDefinition;
 Route::get('/', HomeController::class);
 Route::get('usuarios', [UsuarioController::class, 'index'])->name('usuarios.index');
 Route::get('usuarios/create', [UsuarioController::class, 'create'])->name('usuarios.create');
+Route::get('usuarios/marry',[UsuarioController::class, 'marry'])->name('usuarios.marry');
 Route::post('usuarios', [UsuarioController::class, 'store'])->name('usuarios.store');
 Route::get('usuarios/{usuario}', [UsuarioController::class, 'show'])->name('usuarios.show');
 Route::get('usuarios/{usuario}/edit', [UsuarioController::class, 'edit'])->name('usuarios.edit');

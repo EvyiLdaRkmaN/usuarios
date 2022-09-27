@@ -13,8 +13,13 @@ class UsuarioController extends Controller
         $usuarios = Usuario::orderBY('id', 'desc')->paginate();
         return view('usuarios.index', compact('usuarios'));
     }
+
     public function create(){
         return view('usuarios.create');
+    }
+    
+    public function marry(){
+        return view('usuarios.marry');
     }
 
     public function store(StoreUsuario $request){
@@ -49,4 +54,6 @@ class UsuarioController extends Controller
         $usuario->delete();
         return redirect()->route('usuarios.index');
     }
+
+    
 }
