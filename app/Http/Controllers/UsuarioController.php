@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 use App\Models\Usuario;
+use App\Models\Marry;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Requests\StoreUsuario;
+use App\Http\Requests\StoreMarry;
 use GuzzleHttp\Client;
 
 class UsuarioController extends Controller
@@ -29,6 +31,16 @@ class UsuarioController extends Controller
             ->paginate();
         return view('usuarios.marry', compact('usuarios'), compact('usuariosF'));
     }
+
+    public function marryCreate(StoreMarry $request){
+
+        $marry = Marry::create($request->all());
+        Usuario::where('id', $request->id_userM)
+        ->orWhere('id', $request->id_userF)
+        ->update(['estado' => 'Casado']);
+        return redirect()->route('usuarios.marry');
+    }
+    
 
     public function store(StoreUsuario $request){
 

@@ -10,6 +10,8 @@ class marry extends Model
     use HasFactory;
     protected $table = 'marry';
     protected $primaryKey = 'id_userM';
+    protected $guarded = [];
+    public $timestamps = false;
 
     public function user()
     {
