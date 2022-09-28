@@ -7,11 +7,19 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Requests\StoreUsuario;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\DB;
 
 class MarryController extends Controller
 {
     public function index(){
-        $marrys = Marry::orderBY('id_userM', 'desc')->paginate();
+        $marrys = DB::table('marry')
+            ->join('usuarios', 'marry.id_userM', '=', 'usuarios.id')
+            ->join('usuarios as user2', 'marry.id_userF', '=', 'user2.id')
+            ->select('marry.*', 'usuarios.nombre as person1', 'user2.nombre as person2')
+            ->paginate();
+        // $marrys = Marry::orderBY('id_userM', 'desc')->paginate();
+        // $marrys->user()->get();
+        
         return view('marry.index', compact('marrys'));
     }
 

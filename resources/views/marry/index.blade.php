@@ -20,39 +20,29 @@
     <center>
     <h1>Lista de los casados</h1>
     <br>
-    <a href="{{route('usuarios.create')}}" class="btn btn-primary">Agregar</a>
+    
     <br><br>
         
         <div class="container">
             <div class="col-md-5" >
-                <div class="table-responsive"></div>
-            <table class="table table-bordered">
-                <tr class="table-success">
-                    <td>
-                        Nombre
-                    </td>
-                    <td>
-                        Edad
-                    </td>
-                    <td>
-                        Sexo
-                    </td>
-                    <td>EstadoCivil</td>
-                    <td>Ususario</td>
-                    <td>Contraseña</td>
-                </tr>
-                
-                @foreach ($marrys as $marry)
-                <tr class="table-success">
-                    <td class="table table-success"><a href="{{route('usuarios.show', $marry->id_userM)}}">{{$marry->id_userM}}</a></td>
-                    <td class="table table-success">{{$marry->id_userM}}</td>
-                    <td class="table table-success">{{$marry->id_userM}}</td>
-                    <td class="table table-success">{{$marry->id_userM}}</td>
-                    <td class="table table-success">{{$marry->id_userM}}</td>
-                    <td class="table table-success">{{$marry->id_userM}}</td>
-                </tr>
-                @endforeach
-            </table>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col">Nombre</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($marrys as $marry)
+                            <tr>
+                                <th scope="row">{{$marry->person1}}</th>
+                                <td>Casad con</td>
+                                <td>{{$marry->person2}}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>              
             </div>
         </div>
     </div>
