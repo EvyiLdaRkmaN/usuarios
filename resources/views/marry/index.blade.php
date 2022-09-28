@@ -36,9 +36,9 @@
                     <tbody>
                         @foreach ($marrys as $marry)
                             <tr>
-                                <th scope="row">{{$marry->person1}}</th>
+                                <th scope="row">{{$marry->user->nombre}}</th>
                                 <td>Casad con</td>
-                                <td>{{$marry->person2}}</td>
+                                <td>{{$marry->user2->nombre}}</td>
                             </tr>
                         @endforeach
                     </tbody>
